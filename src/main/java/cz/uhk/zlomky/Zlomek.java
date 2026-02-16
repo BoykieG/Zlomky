@@ -58,6 +58,36 @@ public class Zlomek {
         return new Zlomek(cit, jm);
     }
 
+    // přetížená (overload) metoda plus pro sčítání zlomků
+    public Zlomek plus(int cislo) {
+        int cit = citatel + jmenovatel * cislo;
+        return new Zlomek(cit, jmenovatel);
+    }
+
+    public Zlomek minus(Zlomek druhy) {
+        int jm = jmenovatel * druhy.jmenovatel;
+        int cit = citatel * druhy.jmenovatel - druhy.citatel * jmenovatel;
+        return new Zlomek(cit, jm);
+    }
+
+    public Zlomek minus(int cislo) {
+        int cit = citatel - jmenovatel * cislo;
+        return new Zlomek(cit, jmenovatel);
+    }
+
+    public Zlomek krat(Zlomek druhy) {
+        int jm = jmenovatel * druhy.jmenovatel;
+        int cit = citatel * druhy.citatel;
+        return new Zlomek(cit, jm);
+
+    }
+
+    public Zlomek deleno(Zlomek druhy) {
+        int jm = jmenovatel * druhy.citatel;
+        int cit = citatel * druhy.jmenovatel;
+        return new Zlomek(cit, jm);
+    }
+
     public Zlomek zkratit() {
         int delitel = nsd(citatel, jmenovatel); // výpočet největšího společného dělitele
 

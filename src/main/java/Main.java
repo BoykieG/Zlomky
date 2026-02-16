@@ -17,7 +17,30 @@ public class Main {
         IO.println(b);
 
         var soucet = a.plus(b);
+        var oddil = a.minus(b);
+        var soucin = a.krat(b);
+        var podil = a.deleno(b);
+        IO.println("Soucet je %s".formatted(soucet.zkratit()));
+        // System.out.printf("Soucet je %s\n", soucet.zkratit());
 
-        IO.println(soucet.zkratit());
+        Zlomek[] pole = new Zlomek[] {
+                new Zlomek(1, 3),
+                new Zlomek(1, 2),
+                new Zlomek(6, 5),
+                new Zlomek(4, 3),
+                new Zlomek(7, 8),
+                new Zlomek(13, 10),
+        };
+        Zlomek prumer = prumer(pole);
+        IO.println("Prumer je %s".formatted(prumer.zkratit()));
+    }
+
+    private static Zlomek prumer(Zlomek[] pole) {
+        var soucet = new Zlomek(); // nulový zlomek
+        for (var z : pole) {
+            soucet = soucet.plus(z);
+        }
+        var pocet = new Zlomek(pole.length, 1);
+        return soucet.deleno(pocet);
     }
 }
