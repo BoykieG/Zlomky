@@ -1,6 +1,6 @@
 package cz.uhk.zlomky;
 
-public class Zlomek {
+public class Zlomek extends Number {
     private int citatel;
     private int jmenovatel;
 
@@ -10,6 +10,26 @@ public class Zlomek {
     public Zlomek() {
         citatel = 0;
         jmenovatel = 1;
+    }
+
+    @Override
+    public int intValue() {
+        return (int)longValue();
+    }
+
+    @Override
+    public long longValue() {
+        return Math.round(citatel / (double)jmenovatel);
+    }
+
+    @Override
+    public float floatValue() {
+        return citatel / (float)jmenovatel;
+    }
+
+    @Override
+    public double doubleValue() {
+        return citatel / (double)jmenovatel;
     }
 
     /**
