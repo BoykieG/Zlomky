@@ -16,7 +16,7 @@ public class MereniApp {
         mereni.pridat(12.8);
         mereni.pridat(10E207);
         mereni.pridat(10235);
-        mereni.pridat(-15.4);
+        mereni.pridat(-15.4f);
 
         IO.println("Soucet je %g".formatted(mereni.secist()));
         IO.println("Prumer je %g".formatted(mereni.prumer()));

@@ -5,7 +5,8 @@ package cz.uhk.util;
  * @param <E> typ prvku
  */
 public interface Seznam<E> extends Iterable<E> {
-    void pridej(E prvek);
+    // NOVÉ: přidání na zadanou pozici
+    void pridej(int pozice, E prvek);
 
     void smaz(int pozice);
 

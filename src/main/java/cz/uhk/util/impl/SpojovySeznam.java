@@ -6,15 +6,23 @@ import java.util.Iterator;
 
 public class SpojovySeznam<E> implements Seznam<E> {
     private PrvekSeznamu<E> prvni, posledni;
+
     @Override
-    public void pridej(E hodnota) {
+    public void pridej(int pozice, E hodnota) {
         var novy = new PrvekSeznamu<E>(hodnota);
-        if (prvni == null) {
-            // seznam je prazdny a pridavame prvni hodnotu
-            prvni = posledni = novy;
+        if (pozice == 0) {
+            // vkládáme na začátek
+            novy.dalsi = prvni;
+            prvni = novy;
+            if (posledni == null) posledni = novy;
         } else {
-            posledni.dalsi = novy;
-            posledni = novy;
+            // najdeme prvek před cílovou pozicí
+            var pred = vratPrvek(pozice - 1);
+            if (pred != null) {
+                novy.dalsi = pred.dalsi;
+                pred.dalsi = novy;
+                if (novy.dalsi == null) posledni = novy; // vloženo na konec
+            }
         }
     }
 
